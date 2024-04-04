@@ -3,31 +3,25 @@
 using namespace std;
 void PrintPattern(int n){
     int sp1=n/2;
-    int sp2=0;
-    int st=1;
+    int sp2=-1;
     for(int i=1; i<=n; i++){
         for(int j=1; j<=sp1; j++){
-            cout << "-";
+            cout << " ";
         }
         cout << "*";
         for(int l=1; l<=sp2; l++ ){
-            cout << "-";
+            cout << " ";
         }
         if(i>1 && i<n){
             cout << "*";
         }
         
         cout << endl;
-        if(i<(n-2)){
+        if(i<=(n/2)){
             sp1--;
-        }else{
-            sp1++;
-        }
-        if(i==1 || i==n){
-            sp2=1;
-        }else if(i<(n-2)){
             sp2+=2;
         }else{
+            sp1++;
             sp2-=2;
         }
         
