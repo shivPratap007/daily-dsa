@@ -42,3 +42,42 @@ int main() {
     }
     return 0;
 }
+
+
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+void getMaizePath(int sr, int dr, int sc, int dc,string ans) {
+    if (sr == dr && sc == dc) {
+        cout << ans << " ";
+        return;
+    }
+    
+    
+    for (int r = 1; r <= dr - sr; r++) {
+        getMaizePath(sr + r, dr, sc, dc, ans+"h"+to_string(r));
+        
+    }
+    for (int c = 1; c <= dc - sc; c++) {
+        getMaizePath(sr, dr, sc + c, dc,ans+"v"+to_string(c));
+        
+    }
+    for (int d = 1; d <= dr - sr && d <= dc - sc; d++) {
+        getMaizePath(sr + d,dr,sc + d,dc,ans+"d"+to_string(d));
+       
+    }
+   
+}
+
+int main() {
+    int sr = 1;
+    int dr = 4;
+    int sc = 1;
+    int dc = 4;
+    getMaizePath(sr, dr, sc, dc,"");
+    
+}
+
